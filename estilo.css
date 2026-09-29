@@ -1,0 +1,1350 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+}
+
+/*degradado bonito*/
+body {
+    background: linear-gradient(135deg, #ffd6e8, #f8a8c8, #d96b9b);
+}
+/*fuente*/
+
+@font-face {
+    font-family: "Yellow banana";
+    src: url(Fuentes/Yellow\ Banana.otf) format(TrueType);
+}
+
+@font-face {
+    font-family: "CHICKEN Pie";
+    src: url(Fuentes/CHICKEN\ Pie.ttf) format(TrueType);
+}
+
+h1,h2,h3,h4 {
+    font-family: "Yellow banana", sans-serif;
+    color: #ac3d6d;
+}
+
+p,button,option,summary,a,ol,ul,li,label {
+    font-family: "CHICKEN Pie", sans-serif;
+    color: #ac3d6d;
+}
+/* ANIMACIÓN DE PANES AL ENTRAR */
+
+.intro-panes {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    pointer-events: none;
+    z-index: 9999;
+
+    overflow: hidden;
+
+    animation: desaparecerPanes 1s ease forwards;
+    animation-delay: 4s;
+}
+
+
+/* CADA PAN */
+
+.intro-panes span {
+    position: absolute;
+    top: -100px;
+
+    font-size: 45px;
+
+    opacity: 0;
+
+    animation: caerPan 3s ease-in forwards;
+}
+
+
+/* POSICIONES Y TIEMPOS */
+
+.intro-panes span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0.2s;
+}
+
+.intro-panes span:nth-child(2) {
+    left: 15%;
+    animation-delay: 0.7s;
+}
+
+.intro-panes span:nth-child(3) {
+    left: 27%;
+    animation-delay: 0.3s;
+}
+
+.intro-panes span:nth-child(4) {
+    left: 38%;
+    animation-delay: 1s;
+}
+
+.intro-panes span:nth-child(5) {
+    left: 50%;
+    animation-delay: 0.4s;
+}
+
+.intro-panes span:nth-child(6) {
+    left: 62%;
+    animation-delay: 0.9s;
+}
+
+.intro-panes span:nth-child(7) {
+    left: 73%;
+    animation-delay: 0.5s;
+}
+
+.intro-panes span:nth-child(8) {
+    left: 83%;
+    animation-delay: 1.1s;
+}
+
+.intro-panes span:nth-child(9) {
+    left: 92%;
+    animation-delay: 0.6s;
+}
+
+.intro-panes span:nth-child(10) {
+    left: 45%;
+    animation-delay: 1.3s;
+}
+
+
+/* CAÍDA */
+
+@keyframes caerPan {
+
+    0% {
+        top: -100px;
+        opacity: 0;
+        transform: rotate(-20deg) scale(0.7);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: rotate(15deg) scale(1);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 110vh;
+        opacity: 0;
+        transform: rotate(30deg) scale(0.9);
+    }
+}
+
+
+/* DESAPARECER TODA LA ANIMACIÓN */
+
+@keyframes desaparecerPanes {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* MASCOTA PAN */
+
+.mascota-pan {
+    position: fixed;
+    right: 25px;
+    bottom: 20px;
+    width: 110px;
+    z-index: 5000;
+    pointer-events: none;
+
+    animation: saltarPan 4s ease-in-out infinite;
+}
+
+.mascota-pan img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    filter: drop-shadow(0 6px 5px rgba(100, 50, 50, 0.20));
+}
+
+@keyframes saltarPan {
+
+    0%, 75%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    80% {
+        transform: translateY(-10px) rotate(-4deg);
+    }
+
+    85% {
+        transform: translateY(-40px) rotate(4deg);
+    }
+
+    90% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+.barra-logo {
+    width: 100%;
+    min-height: 120px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.20),
+        rgba(255, 220, 235, 0.45),
+        rgba(255, 255, 255, 0.20)
+    );
+
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 4px 18px rgba(120, 30, 70, 0.12);
+}
+/* =========================
+   MENÚ DE NAVEGACIÓN
+========================= */
+
+.menu-exquisite {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+
+    padding: 15px 20px;
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 4px 15px rgba(120, 30, 70, 0.10);
+}
+
+/* Enlaces */
+
+.menu-exquisite a {
+    position: relative;
+
+    color: #9d315f;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    padding: 7px 5px;
+
+    transition: 0.3s ease;
+}
+
+/* Línea debajo al pasar el mouse */
+
+.menu-exquisite a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: #d45b91;
+
+    transform: translateX(-50%);
+
+    transition: 0.3s ease;
+}
+
+.menu-exquisite a:hover {
+    color: #d45b91;
+}
+
+.menu-exquisite a:hover::after {
+    width: 100%;
+}
+.linea-decorativa {
+    width: 80%;
+    height: 2px;
+    margin: 30px auto;
+    position: relative;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        white 20%,
+        white 45%,
+        white 55%,
+        transparent 80%
+    );
+
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+.punto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 16px;
+    text-shadow: 0 0 8px white, 0 0 15px white;
+}
+
+/*LOGO*/
+
+.logo {
+    width: 180px;
+    height: auto;
+    display: block;
+    margin: 40px auto 0;
+}
+
+.navegacion {
+    text-align: center;
+    margin: 25px auto;
+}
+
+.navegacion table {
+    border-collapse: separate;
+    border-spacing: 8px;
+    margin: auto;
+}
+
+.navegacion td {
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 10px 22px;
+    background: rgba(255, 255, 255, 0.12);
+
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+
+    transition: 0.3s ease;
+}
+
+.navegacion a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Efecto al pasar el mouse */
+.navegacion td:hover {
+    background: rgba(255, 255, 255, 0.30);
+    box-shadow: 
+        0 0 8px white,
+        0 0 18px rgba(255, 180, 220, 0.8);
+
+    transform: translateY(-3px);
+}
+
+.navegacion a:hover {
+    color: #fff;
+}
+
+/* =========================
+   CATÁLOGO
+========================= */
+
+.catalogo {
+    width: 90%;
+    margin: 40px auto;
+}
+
+/* Tabla del catálogo */
+.catalogo table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+/* Cada producto */
+.catalogo td {
+    width: 33.33%;
+    padding: 15px;
+    text-align: center;
+    vertical-align: top;
+
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+
+    box-shadow:
+        0 5px 15px rgba(120, 30, 70, 0.25),
+        0 0 10px rgba(255, 255, 255, 0.25);
+
+    transition: 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.catalogo td:hover {
+    transform: translateY(-8px);
+
+    background: rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 10px 25px rgba(120, 30, 70, 0.3),
+        0 0 18px rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================
+   IMÁGENES
+========================= */
+
+.catalogo img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+
+    border: 2px solid white !important;
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 12px rgba(100, 30, 60, 0.25);
+
+    transition: 0.3s ease;
+}
+
+.catalogo img:hover {
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   NOMBRE DEL PRODUCTO
+========================= */
+
+.catalogo summary {
+    margin-top: 15px;
+
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    list-style: none;
+
+    text-shadow: 0 0 5px rgba(120, 40, 80, 0.5);
+}
+
+/* Quitar la flechita de details */
+.catalogo summary::-webkit-details-marker {
+    display: none;
+}
+
+
+/* =========================
+   PRECIO
+========================= */
+
+.catalogo button {
+    margin: 12px 0;
+
+    padding: 8px 20px;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    color: white;
+
+    border: 1px solid white;
+    border-radius: 20px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.catalogo button:hover {
+    background: white;
+    color: #d45b91;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 18px rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================
+   DESCRIPCIÓN
+========================= */
+
+.catalogo p {
+    color: white;
+
+    font-size: 15px;
+    line-height: 1.6;
+
+    text-align: justify;
+
+    margin: 10px 5px;
+}
+
+.Titulo h1{
+    font-size: 50px;
+
+}
+
+.tituloo h2 {
+    font-size: 40px;
+}
+
+/*logo*/
+
+.logo {
+    width: 190px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+
+    /* Brillo del logo */
+    filter:
+        drop-shadow(0 0 4px white)
+        drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))
+        drop-shadow(0 0 20px rgba(255, 150, 200, 0.7));
+
+    transition: all 0.5s ease;
+
+    animation: brillo 3s ease-in-out infinite;
+}
+
+/* Brillo que aparece y desaparece suavemente */
+@keyframes brillo {
+    0%, 100% {
+        filter:
+            drop-shadow(0 0 4px white)
+            drop-shadow(0 0 10px rgba(255, 255, 255, 0.7))
+            drop-shadow(0 0 18px rgba(255, 150, 200, 0.5));
+    }
+
+    50% {
+        filter:
+            drop-shadow(0 0 7px white)
+            drop-shadow(0 0 18px white)
+            drop-shadow(0 0 30px rgba(255, 150, 200, 0.9));
+    }
+}
+
+/* Efecto al pasar el mouse */
+.logo:hover {
+    transform: scale(1.06);
+}
+
+/* =========================
+   PRODUCTOS Y EMPRESA
+========================= */
+
+.productos-empresa {
+    width: 90%;
+    margin: 50px auto;
+}
+
+/* Tabla */
+
+.productos-empresa table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+/* Tarjetas */
+
+.productos-empresa td {
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.16);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+
+    box-shadow:
+        0 8px 20px rgba(120, 30, 70, 0.25),
+        0 0 12px rgba(255, 255, 255, 0.25);
+
+    color: white;
+
+    transition: 0.4s ease;
+}
+
+/* Efecto al pasar el mouse */
+
+.productos-empresa td:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255, 255, 255, 0.23);
+
+    box-shadow:
+        0 10px 25px rgba(120, 30, 70, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.productos-empresa h2 {
+    text-align: center;
+
+    color: #ac3d6d;
+
+    font-size: 26px;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   LISTA DE PRODUCTOS
+========================= */
+
+.productos-empresa ul {
+    padding-left: 25px;
+}
+
+.productos-empresa ul li {
+    margin-bottom: 15px;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   BOTONES DE PRECIO
+========================= */
+
+.productos-empresa button {
+    margin-top: 5px;
+
+    padding: 6px 16px;
+
+    color: white;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border: 1px solid white;
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    box-shadow: 0 0 7px rgba(255, 255, 255, 0.4);
+
+    transition: 0.3s ease;
+}
+
+.productos-empresa button:hover {
+    background: white;
+
+    color: #d45b91;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 18px rgba(255, 180, 220, 0.9);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.productos-empresa p {
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    text-align: justify;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   LISTA DE CARACTERÍSTICAS
+========================= */
+
+.productos-empresa ol {
+    padding-left: 25px;
+}
+
+.productos-empresa ol li {
+    margin: 10px 0;
+
+    font-size: 17px;
+
+    font-weight: bold;
+}
+.productos-empresa h2::after {
+    content: "";
+    display: block;
+
+    width: 100px;
+    height: 2px;
+
+    margin: 10px auto 0;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        white,
+        transparent
+    );
+
+    box-shadow: 0 0 8px white;
+}
+
+.carrusel h2 {
+    font-size: 40px;
+}
+
+/* =========================
+   CARRUSEL
+========================= */
+
+.carrusel {
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+}
+/* Línea decorativa */
+
+.carrusel h2::after {
+    content: "";
+    display: block;
+
+    width: 180px;
+    height: 2px;
+
+    margin: 10px auto;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        white,
+        transparent
+    );
+
+    box-shadow: 0 0 8px white;
+}
+
+/* Contenedor */
+
+.carrusel table {
+    width: 100%;
+    border-collapse: separate;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 8px 25px rgba(100, 20, 60, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+/* Espacio donde pasan las imágenes */
+
+.carrusel td {
+    padding: 20px;
+}
+
+/* Imágenes */
+
+.carrusel img {
+    width: 400px;
+    height: 300px;
+
+    object-fit: cover;
+
+    margin: 0 10px;
+
+    border: 2px solid white;
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.5),
+        0 5px 15px rgba(80, 20, 50, 0.3);
+
+    transition: 0.4s ease;
+}
+
+/* Efecto al pasar el mouse */
+
+.carrusel img:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 10px white,
+        0 0 25px rgba(255, 180, 220, 0.9);
+}
+
+.contenedor {
+    width: 850px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+    
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.96),
+        rgba(255, 235, 244, 0.94),
+        rgba(255, 248, 251, 0.96)
+    );
+    border: 2px solid white;
+    border-radius: 30px;
+    
+    box-shadow:
+        0 8px 25px rgba(120, 30, 70, 0.25),
+        0 0 15px rgba(255, 255, 255, 0.7);
+    
+    box-sizing: border-box;
+}
+
+.contenedor table {
+    width: 100%;
+}
+
+.contenedor p {
+    font-size: 17px;
+    line-height: 1.7;
+    text-align: justify;
+    margin: 0 0 25px 0;
+}
+
+
+/* BOTÓN */
+.boton-pan {
+    padding: 11px 28px;
+    border: 2px solid #d45b91;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #f8b6d2, #d45b91);
+    box-shadow:
+        0 4px 10px rgba(120, 30, 70, 0.25),
+        0 0 10px rgba(255, 180, 220, 0.6);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.boton-pan a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.boton-pan:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 6px 15px rgba(120, 30, 70, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.9);
+}
+
+.boton-pan:hover a {
+    color: white;
+}
+
+.video {
+    width: 1500px;
+    max-width: 90%;
+    margin: 35px auto;
+    padding: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #ffe6f0,
+        #fff8fb
+    );
+
+    border: 2px solid white;
+    border-radius: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(120, 30, 70, 0.25),
+        0 0 18px rgba(255, 180, 220, 0.6);
+
+    transition: 0.4s ease;
+}
+
+.video video {
+    display: block;
+    width: 100%;
+    border-radius: 18px;
+    border: 2px solid #f3a8c8;
+}
+
+/* Efecto al pasar el mouse */
+.video:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(120, 30, 70, 0.3),
+        0 0 25px rgba(255, 170, 215, 0.8);
+}
+
+.titulo-video {
+    text-align: center;
+    color: #c65383;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.formularios {
+    width: 90%;
+    max-width: 950px;
+    margin: 40px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+}
+
+/* TARJETAS DE LOS FORMULARIOS */
+
+.formulario {
+    flex: 1;
+    padding: 30px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.96),
+        rgba(255, 232, 242, 0.95),
+        rgba(255, 248, 251, 0.97)
+    );
+
+    border: 2px solid white;
+    border-radius: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(120, 30, 70, 0.20),
+        0 0 15px rgba(255, 180, 220, 0.55);
+
+    box-sizing: border-box;
+
+    transition: 0.3s ease;
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.formulario:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(120, 30, 70, 0.25),
+        0 0 22px rgba(255, 170, 215, 0.7);
+}
+
+/* TÍTULOS */
+
+.formulario h3 {
+    text-align: center;
+    color: #c65383;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* ETIQUETAS */
+
+.formulario label {
+    display: block;
+    color: #7a3d58;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+
+/* CAMPOS */
+
+.formulario input,
+.formulario textarea,
+.formulario select {
+    width: 100%;
+    padding: 11px 13px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #f3bdd2;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    color: #7a3d58;
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+/* TEXTAREA */
+
+.formulario textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* CUANDO SE SELECCIONA UN CAMPO */
+
+.formulario input:focus,
+.formulario textarea:focus,
+.formulario select:focus {
+    border-color: #d45b91;
+
+    box-shadow:
+        0 0 8px rgba(212, 91, 145, 0.3);
+
+    background: white;
+}
+
+/* TEXTO DE AYUDA */
+
+.formulario input::placeholder,
+.formulario textarea::placeholder {
+    color: #c59aaa;
+}
+
+/* BOTÓN */
+
+.formulario button {
+    display: block;
+    margin: 25px auto 0;
+
+    padding: 11px 30px;
+
+    border: 2px solid #d45b91;
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #f8b6d2,
+        #d45b91
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px rgba(120, 30, 70, 0.25),
+        0 0 10px rgba(255, 180, 220, 0.5);
+
+    transition: 0.3s ease;
+}
+
+/* BOTÓN HOVER */
+
+.formulario button:hover {
+    transform: translateY(-3px) scale(1.04);
+
+    box-shadow:
+        0 6px 15px rgba(120, 30, 70, 0.3),
+        0 0 20px rgba(255, 180, 220, 0.8);
+}
+.login form {
+    padding-top: 50px;
+}
+
+.linea {
+    width: 94%;
+    border: none;
+    height: 3px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #f3a8c8,
+        white,
+        #f3a8c8,
+        transparent
+    );
+
+    margin: 50px auto 20px;
+}
+
+
+.header-exquisite {
+    width: 98%;
+    max-width: 1500px;
+    margin: 0 auto 50px;
+    padding: 40px 55px;
+
+    box-sizing: border-box;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.97),
+        rgba(255, 235, 244, 0.95),
+        rgba(255, 248, 251, 0.98)
+    );
+
+    border: 2px solid white;
+    border-radius: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(120, 30, 70, 0.20),
+        0 0 18px rgba(255, 180, 220, 0.55);
+}
+
+
+/* TÍTULOS */
+
+.header-exquisite h2 {
+    color: #c65383;
+    font-size: 27px;
+
+    margin: 25px 0 18px;
+
+    text-shadow:
+        0 0 8px rgba(255, 180, 215, 0.4);
+}
+
+
+/* TARJETAS DE TEXTO */
+
+.Quien,
+.mision,
+.vision {
+    padding: 22px 28px;
+    margin-bottom: 30px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px solid #f3c4d7;
+    border-radius: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(120, 30, 70, 0.10);
+
+    transition: 0.3s ease;
+}
+
+
+/* EFECTO */
+
+.Quien:hover,
+.mision:hover,
+.vision:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 18px rgba(120, 30, 70, 0.16),
+        0 0 12px rgba(255, 180, 220, 0.45);
+}
+
+
+/* PÁRRAFOS */
+
+.header-exquisite p {
+    color: #7a3d58;
+    font-size: 17px;
+    line-height: 1.7;
+
+    text-align: justify;
+
+    margin: 0;
+}
+
+
+/* CONTACTO */
+
+.contacto-exquisite {
+    margin-top: 35px;
+    padding-top: 20px;
+
+    border-top: 1px solid #f0bfd3;
+}
+
+.contacto-exquisite p {
+    text-align: center;
+    margin: 12px 0;
+}
+
+.contacto-exquisite strong {
+    color: #c65383;
+}
+
+
+/* ENLACES */
+
+.header-exquisite a {
+    color: #c65383;
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.header-exquisite a:hover {
+    color: #9d315f;
+    text-decoration: underline;
+}
+
+/* =========================
+   ADAPTACIÓN PARA CELULARES
+========================= */
+
+@media (max-width: 700px) {
+
+    /* BARRA DEL LOGO */
+    .barra-logo {
+        min-height: 100px;
+        padding: 10px;
+    }
+
+    .barra-logo img {
+        width: 140px;
+    }
+
+
+    /* MENÚ */
+    .menu-exquisite {
+        gap: 5px;
+        padding: 10px 8px;
+
+        flex-wrap: wrap;
+    }
+
+    .menu-exquisite a {
+        font-size: 14px;
+        padding: 8px 7px;
+    }
+
+
+    /* CONTENEDORES */
+    .contenedor {
+        width: 94%;
+        max-width: none;
+
+        padding: 20px;
+        margin: 30px auto;
+
+        border-radius: 22px;
+    }
+
+
+    /* TEXTOS */
+    .contenedor p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+
+    /* QUIÉNES SOMOS */
+    .header-exquisite {
+        width: 94%;
+        padding: 22px 18px;
+        margin-bottom: 30px;
+
+        border-radius: 22px;
+    }
+
+    .header-exquisite h2 {
+        font-size: 22px;
+    }
+
+    .header-exquisite p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .Quien,
+    .mision,
+    .vision {
+        padding: 18px;
+        margin-bottom: 20px;
+    }
+
+
+    /* FORMULARIOS */
+    .formularios {
+        width: 94%;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .formulario {
+        width: 100%;
+        padding: 22px;
+    }
+
+    .formulario h3 {
+        font-size: 21px;
+    }
+
+
+    /* VIDEO */
+    .video {
+        width: 90%;
+        max-width: none;
+    }
+
+
+    /* MASCOTA PAN */
+    .mascota-pan {
+        right: 12px;
+        bottom: 12px;
+        width: 75px;
+    }
+}
